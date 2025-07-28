@@ -127,6 +127,11 @@ header::before {
             transform: rotate(45deg);
             animation: shine 3s infinite;
         }
+@keyframes shine {
+            0% { transform: rotate(45deg) translateX(-100%); }
+            50% { transform: rotate(45deg) translateX(0%); }
+            100% { transform: rotate(45deg) translateX(100%); }
+        }
 
 
 
