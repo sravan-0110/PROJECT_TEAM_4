@@ -422,28 +422,38 @@
         <section id="mains" class="menu-section">
             <div class="section-header">
                 <h2 class="section-title">🍖 Main Courses</h2>
-
+<<<<<<< HEAD
                 <p class="section-description">Signature dishes crafted with premium ingredients</p>
             </div>
-
-                <p class="section-description">Signature deshas  crafted with premium ingredients</p>
+=======
+<<<<<<< HEAD
+                <p class="section-description">Signature deshas @@@ crafted with premium ingredients</p>
             </div>
-	   
+	    @@@@@
+=======
                 <p class="section-description">Signature dishes crafted with premium ingredients</p>
-
+<<<<<<< HEAD
+         @@@@@@@@
 	    </div>
             <div class="menu-grid">
                 <div class="menu-item">
                     <div class="item-header">
-                        <h3 class="item-name">Wagyu Beef</h3>
-
+                        <h3 class="item-name">Wagyu Beef @@@@@@@@@@</h3>
+=======
             </div>
-
+>>>>>>> branch2
+>>>>>>> branch1
             <div class="menu-grid">
                 <div class="menu-item">
                     <div class="item-header">
                         <h3 class="item-name">Wagyu Beef Tenderloin</h3>
-
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> branch3
+>>>>>>> branch2
+>>>>>>> branch1
                         <span class="item-price">$58</span>
                     </div>
                     <p class="item-description">8oz premium wagyu with roasted bone marrow, truffle mashed potatoes, and red wine reduction</p>
@@ -571,20 +581,28 @@
                     </div>
                     <p class="item-description">Rich Belgian chocolate with truffle pieces</p>
                 </div>
-
+<<<<<<< HEAD
                 
                 <div class="ice-cream-item">
-
+=======
+<<<<<<< HEAD
                 
                 <div class="ice-cream-item">
-
+=======
+<<<<<<< HEAD
                 
                 <div class="ice-cream-item">
-
+=======
+<<<<<<< HEAD
+                @###########
                 <div class="icecream-ietm">
-               
+=======
+                
                 <div class="ice-cream-item">
-
+>>>>>>> branch4
+>>>>>>> branch3
+>>>>>>> branch2
+>>>>>>> branch1
                     <div class="ice-cream-emoji">🍓</div>
                     <div class="item-header">
                         <h3 class="item-name">Strawberry Basil</h3>
@@ -629,15 +647,29 @@
         <section id="beverages" class="menu-section">
             <div class="section-header">
                 <h2 class="section-title">🍹 Beverages</h2>
-
+<<<<<<< HEAD
                 <p class="section-description">Refreshing drinks to complement your meal</p>
-
+=======
+<<<<<<< HEAD
                 <p class="section-description">Refreshing drinks to complement your meal</p>
+=======
+<<<<<<< HEAD
                 <p class="section-description">Refreshing drinks to complement your meal</p>
+=======
+<<<<<<< HEAD
                 <p class="section-description">Refreshing drinks to complement your meal</p>
+=======
+<<<<<<< HEAD
+            
+yfl,uyufyj
 		<p class="section-description">Refreshing drinks to complement your meal</p>
-
+=======
                 <p class="section-description">Refreshing drinks to complement your meal</p>
+>>>>>>> branch5
+>>>>>>> branch4
+>>>>>>> branch3
+>>>>>>> branch2
+>>>>>>> branch1
             </div>
             <div class="menu-grid">
                 <div class="menu-item">
@@ -682,6 +714,10 @@
                         <span class="tag veg">Healthy</span>
                     </div>
                 </div>
+<<<<<<< HEAD
+                
+=======
+>>>>>>> branch1
                 <div class="menu-item">
                     <div class="item-header">
                         <h3 class="item-name">Mocktails</h3>
