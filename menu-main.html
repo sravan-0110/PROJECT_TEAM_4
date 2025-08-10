@@ -193,4 +193,41 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             border-color: #d4af37;
         }
+ .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+        }
+
+        .item-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #333;
+            position: relative;
+            z-index: 1;
+        }
+
+        .item-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #d4af37;
+            position: relative;
+            z-index: 1;
+        }
+
+        .item-description {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            position: relative;
+            z-index: 1;
+        }
+
+        .item-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
 
