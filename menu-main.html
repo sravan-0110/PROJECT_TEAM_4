@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URBAN BITES - Menu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #333, #1a1a1a);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 70%, rgba(212, 175, 55, 0.1), transparent 50%);
+        }
+  .menu-title {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #d4af37, #f4d03f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            z-index: 1;
+        }
+
+        .menu-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navigation */
+        .menu-nav {
+            background: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+  .nav-btn {
+            padding: 0.8rem 1.5rem;
+            background: transparent;
+            border: 2px solid #d4af37;
+            color: #d4af37;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background: #d4af37;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Menu Container */
+        .menu-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .menu-section {
+            background: white;
+            margin-bottom: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+  .menu-section.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, #d4af37, #f4d03f);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: rotate(45deg) translateX(-100%); }
+            50% { transform: rotate(45deg) translateX(0%); }
+            100% { transform: rotate(45deg) translateX(100%); }
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+}
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem;
+        }
+
+        .menu-item {
+            padding: 1.5rem;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.05), transparent);
+            transition: left 0.5s;
+        }
+
+        .menu-item:hover::before {
+            left: 100%;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-color: #d4af37;
+        }
+ .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+        }
+
+        .item-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #333;
+            position: relative;
+            z-index: 1;
+        }
+
+        .item-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #d4af37;
+            position: relative;
+            z-index: 1;
+        }
+
+        .item-description {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            position: relative;
+            z-index: 1;
+        }
+
+        .item-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+  .tag {
+            background: rgba(212, 175, 55, 0.1);
+            color: #d4af37;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .tag.spicy { background: rgba(255, 99, 99, 0.1); color: #ff6363; }
+        .tag.veg { background: rgba(76, 175, 80, 0.1); color: #4caf50; }
+        .tag.popular { background: rgba(255, 152, 0, 0.1); color: #ff9800; }
+
+        /* Special styling for ice cream section */
+        .ice-cream-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem;
+        }
+
+        .ice-cream-item {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            border-radius: 20px;
+            background: linear-gradient(145deg, #ffffff, #f8f9fa);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ice-cream-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.05), transparent);
+            transform: scale(0);
+            transition: transform 0.3s ease;
+        }
+
+        .ice-cream-item:hover::before {
+            transform: scale(1);
+        }
+  .ice-cream-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .ice-cream-emoji {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .menu-title {
+                font-size: 2.5rem;
+            }
+            
+            .nav-container {
+                gap: 1rem;
+            }
+            
+            .nav-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.8rem;
+            }
+            
+            .menu-grid {
+                grid-template-columns: 1fr;
+                padding: 1.5rem;
+            }
+            
+.section-title {
+                font-size: 2rem;
+            }
+            
+            .ice-cream-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="menu-title">URBAN BITES</h1>
+        <p class="menu-subtitle">Culinary Excellence in Every Bite</p>
+    </header>
+
+    <nav class="menu-nav">
+        <div class="nav-container">
+            <a href="#starters" class="nav-btn active">Starters</a>
+            <a href="#mains" class="nav-btn">Main Courses</a>
+            <a href="#desserts" class="nav-btn">Desserts</a>
+            <a href="#ice-cream" class="nav-btn">Ice Cream</a>
+            <a href="#beverages" class="nav-btn">Beverages</a>
+        </div>
+    </nav>
+
+    <div class="menu-container">
+        <!-- Starters Section -->
+        <section id="starters" class="menu-section">
+            <div class="section-header">
+                <h2 class="section-title">🥗 Starters</h2>
+                <p class="section-description">Begin your culinary journey with our exquisite appetizers</p>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h3 class="item-name">Truffle Arancini</h3>
+                        <span class="item-price">$16</span>
+                    </div>
+                    <p class="item-description">Crispy risotto balls filled with wild mushrooms and truffle oil, served with parmesan cream sauce</p>
+  <div class="item-tags">
+                        <span class="tag veg">Vegetarian</span>
+                        <span class="tag popular">Popular</span>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h3 class="item-name">Spicy Tuna Tartare</h3>
+                        <span class="item-price">$22</span>
+                    </div>
+                    <p class="item-description">Fresh yellowfin tuna with avocado, cucumber, and sriracha aioli on crispy wonton chips</p>
+                    <div class="item-tags">
+                        <span class="tag spicy">Spicy</span>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h3 class="item-name">Burrata & Prosciutto</h3>
+                        <span class="item-price">$18</span>
+                    </div>
+                    <p class="item-description">Creamy burrata cheese with San Daniele prosciutto, fresh figs, and honey drizzle</p>
+                    <div class="item-tags">
+                        <span class="tag popular">Popular</span>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h3 class="item-name">Korean BBQ Wings</h3>
+                        <span class="item-price">$14</span>
+                    </div>
+                    <p class="item-description">Crispy chicken wings glazed with gochujang, sesame, and scallions</p>
+                    <div class="item-tags">
+                        <span class="tag spicy">Spicy</span>
+                        <span class="tag popular">Popular</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Courses Section -->
+        <section id="mains" class="menu-section">
+            <div class="section-header">
+                <h2 class="section-title">🍖 Main Courses</h2>
+                <p class="section-description">Signature dishes crafted with premium ingredients</p>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h3 class="item-name">Wagyu Beef Tenderloin</h3>
+                        <span class="item-price">$58</span>
+                    </div>
+                    <p class="item-description">8oz premium wagyu with roasted bone marrow, truffle mashed potatoes, and red wine reduction</p>
+                    <div class="item-tags">
+                        <span class="tag popular">Chef's Special</span>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h3 class="item-name">Miso Glazed Salmon</h3>
+                        <span class="item-price">$32</span>
+                    </div>
+                    <p class="item-description">Atlantic salmon with white miso glaze, sesame bok choy, and coconut jasmine rice</p>
+                </div>
+                
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h3 class="item-name">Duck Confit Risotto</h3>
+                        <span class="item-price">$28</span>
+                    </div>
+                    <p class="item-description">Slow-cooked duck leg with wild mushroom risotto, cherry gastrique, and micro greens</p>
+                </div>
+                
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h3 class="item-name">Lobster Ravioli</h3>
+                        <span class="item-price">$36</span>
+                    </div>
+                    <p class="item-description">House-made pasta filled with Maine lobster in saffron cream sauce with fresh herbs</p>
+                    <div class="item-tags">
+                        <span class="tag popular">Popular</span>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h3 class="item-name">Vegetarian Buddha Bowl</h3>
+                        <span class="item-price">$22</span>
+                    </div>
+                    <p class="item-description">Quinoa, roasted vegetables, avocado, hemp seeds, and tahini dressing</p>
+                    <div class="item-tags">
+                        <span class="tag veg">Vegetarian</span>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h3 class="item-name">Spicy Szechuan Noodles</h3>
+                        <span class="item-price">$24</span>
+                    </div>
+                    <p class="item-description">Hand-pulled noodles with ground pork, Szechuan peppercorns, and chili oil</p>
+                    <div class="item-tags">
+                        <span class="tag spicy">Very Spicy</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Desserts Section -->
+        <section id="desserts" class="menu-section">
+            <div class="section-header">
+                <h2 class="section-title">🍰 Desserts</h2>
+                <p class="section-description">Sweet endings to your perfect meal</p>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h3 class="item-name">Chocolate Lava Cake</h3>
+                        <span class="item-price">$12</span>
+                    </div>
+                    <p class="item-description">Warm chocolate cake with molten center, vanilla bean ice cream, and raspberry coulis</p>
+                    <div class="item-tags">
+                        <span class="tag popular">Popular</span>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h3 class="item-name">Crème Brûlée Trio</h3>
+                        <span class="item-price">$14</span>
+                    </div>
+                    <p class="item-description">Vanilla, lavender, and espresso crème brûlée with caramelized sugar crust</p>
+                </div>
+                
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h3 class="item-name">Tiramisu</h3>
+                        <span class="item-price">$11</span>
+                    </div>
+                    <p class="item-description">Classic Italian dessert with mascarpone, espresso-soaked ladyfingers, and cocoa dust</p>
+                </div>
+                
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h3 class="item-name">Lemon Tart</h3>
+                        <span class="item-price">$10</span>
+                    </div>
+                    <p class="item-description">Tangy lemon curd in buttery pastry shell with torched meringue and candied lemon zest</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ice Cream Section -->
+        <section id="ice-cream" class="menu-section">
+            <div class="section-header">
+                <h2 class="section-title">🍦 Artisan Ice Cream</h2>
+                <p class="section-description">House-made ice cream with premium ingredients</p>
+            </div>
+            <div class="ice-cream-grid">
+                <div class="ice-cream-item">
+                    <div class="ice-cream-emoji">🍦</div>
+                    <div class="item-header">
+                        <h3 class="item-name">Vanilla Bean Supreme</h3>
+                        <span class="item-price">$8</span>
+                    </div>
+                    <p class="item-description">Madagascar vanilla beans with hints of caramel</p>
+                </div>
+                
+                <div class="ice-cream-item">
+                    <div class="ice-cream-emoji">🍫</div>
+                    <div class="item-header">
+                        <h3 class="item-name">Dark Chocolate Truffle</h3>
+                        <span class="item-price">$9</span>
+                    </div>
+                    <p class="item-description">Rich Belgian chocolate with truffle pieces</p>
+                </div>
+                
+                <div class="ice-cream-item">
+                    <div class="ice-cream-emoji">🍓</div>
+                    <div class="item-header">
+                        <h3 class="item-name">Strawberry Basil</h3>
+                        <span class="item-price">$8</span>
+                    </div>
+                    <p class="item-description">Fresh strawberries with aromatic basil</p>
+                </div>
+                
+                <div class="ice-cream-item">
+                    <div class="ice-cream-emoji">🥥</div>
+                    <div class="item-header">
+                        <h3 class="item-name">Coconut Lime</h3>
+                        <span class="item-price">$8</span>
+                    </div>
+                    <p class="item-description">Creamy coconut with zesty lime twist</p>
+                </div>
+                
+                <div class="ice-cream-item">
+                    <div class="ice-cream-emoji">🍵</div>
+                    <div class="item-header">
+                        <h3 class="item-name">Green Tea Matcha</h3>
+                        <span class="item-price">$9</span>
+                    </div>
+                    <p class="item-description">Premium Japanese matcha powder</p>
+                </div>
+                
+                <div class="ice-cream-item">
+                    <div class="ice-cream-emoji">🍯</div>
+                    <div class="item-header">
+                        <h3 class="item-name">Salted Caramel Swirl</h3>
+                        <span class="item-price">$9</span>
+                    </div>
+                    <p class="item-description">House-made caramel with sea salt crystals</p>
+                    <div class="item-tags">
+                        <span class="tag popular">Popular</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Beverages Section -->
+        <section id="beverages" class="menu-section">
+            <div class="section-header">
+                <h2 class="section-title">🍹 Beverages</h2>
+                <p class="section-description">Refreshing drinks to complement your meal</p>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h3 class="item-name">Signature Cocktails</h3>
+                        <span class="item-price">$14-18</span>
+                    </div>
+                    <p class="item-description">Urban Mule, Golden Hour Martini, Spicy Margarita, Elderflower Fizz</p>
+                </div>
+                
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h3 class="item-name">Wine Selection</h3>
+                        <span class="item-price">$12-45</span>
+                    </div>
+                    <p class="item-description">Curated collection of red, white, and sparkling wines from renowned vineyards</p>
+                </div>
+                
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h3 class="item-name">Craft Beer</h3>
+                        <span class="item-price">$8-12</span>
+                    </div>
+                    <p class="item-description">Local IPA, Wheat Beer, Stout, and seasonal selections</p>
+                </div>
+                
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h3 class="item-name">Specialty Coffee</h3>
+                        <span class="item-price">$5-8</span>
+                    </div>
+                    <p class="item-description">Espresso, Cappuccino, Cold Brew, Matcha Latte</p>
+                </div>
+                
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h3 class="item-name">Fresh Juices</h3>
+                        <span class="item-price">$6-9</span>
+                    </div>
+                    <p class="item-description">Green Goddess, Tropical Blend, Ginger Turmeric, Cucumber Mint</p>
+                    <div class="item-tags">
+                        <span class="tag veg">Healthy</span>
+                    </div>
+                </div>
+       
+
+		lhagf@2222222222222#
+		;jnff
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h3 class="item-name">Mocktails</h3>
+                        <span class="item-price">$8-10</span>
+                    </div>
+                    <p class="item-description">Virgin Mojito, Passion Fruit Sparkler, Pomegranate Fizz</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 URBAN BITES. All rights reserved. | Follow us for daily specials and new menu items!</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                
+                // Update active button
+                document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Scroll animations
+        const animateOnScroll = () => {
+            const sections = document.querySelectorAll('.menu-section');
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const sectionVisible = 150;
+                
+                if (sectionTop < window.innerHeight - sectionVisible) {
+                    section.classList.add('animate');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+
+        // Update active nav button based on scroll position
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.menu-section');
+            const navButtons = document.querySelectorAll('.nav-btn');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                if (sectionTop <= 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navButtons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('href') === #${current}) {
+                    btn.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
