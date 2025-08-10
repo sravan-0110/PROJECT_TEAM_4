@@ -277,4 +277,45 @@
         .ice-cream-item:hover::before {
             transform: scale(1);
         }
+  .ice-cream-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .ice-cream-emoji {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .menu-title {
+                font-size: 2.5rem;
+            }
+            
+            .nav-container {
+                gap: 1rem;
+            }
+            
+            .nav-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.8rem;
+            }
+            
+            .menu-grid {
+                grid-template-columns: 1fr;
+                padding: 1.5rem;
+            }
+            
 
